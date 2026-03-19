@@ -25,7 +25,7 @@ public class Sketch {
   };                             
   public int linearSearch(int catNumToFind){
     for (int i = 0; i < store.length; i++){
-      if (catNumToFind == i.getCatNum())
+      if (catNumToFind == store[i].getCatNum())
         return i;
     }
     return -1;
@@ -34,7 +34,7 @@ public class Sketch {
   public int recursiveLinearSearch(int catNumToFind, int startIndex){
     if (startIndex >= store.length)
       return -1;
-    else if (store[startIndex].getCatNum == catNumToFind)
+    else if (store[startIndex].getCatNum() == catNumToFind)
       return startIndex;
     else
       return recursiveLinearSearch(catNumToFind, startIndex+1);
@@ -58,7 +58,7 @@ public class Sketch {
     int guess = (nLow+nHigh)/2;
     if (store[guess].getCatNum() == catNumToFind)
       return guess;
-    else if (low > high)
+    else if (nLow > nHigh)
       return -1;
     else if (store[guess].getCatNum() > catNumToFind)
       return recursiveBinarySearch(catNumToFind, nLow, guess-1);
