@@ -37,7 +37,7 @@ public class Sketch {
     else if (store[startIndex].getCatNum == catNumToFind)
       return startIndex;
     else
-      return recursiveLinearSearch(catNumToFind, startIndex+1)
+      return recursiveLinearSearch(catNumToFind, startIndex+1);
   }
   public int binarySearch(int catNumToFind){
     int low = 0;
