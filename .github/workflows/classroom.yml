@@ -13,11 +13,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: lienar1
-      id: lienar1
+    - name: linear1
+      id: linear1
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: lienar1
+        test-name: linear1
         setup-command: ''
         command: gradle test --tests "*linear1*"
         timeout: 10
@@ -31,30 +31,30 @@ jobs:
         command: gradle test --tests "*recursivelinear*"
         timeout: 10
         max-score: 1
-    - name: binarysearch
+    - name: binarySearch
       id: binarysearch
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: binarysearch
+        test-name: binarySearch
         setup-command: ''
-        command: gradle test --tests "*binarysearch*"
+        command: gradle test --tests "*binarySearch*"
         timeout: 10
         max-score: 1
-    - name: recursivebinary
+    - name: recursiveBinary
       id: recursivebinary
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: recursivebinary
+        test-name: recursiveBinary
         setup-command: ''
-        command: gradle test --tests "*recursivebinary*"
+        command: gradle test --tests "*recursiveBinary*"
         timeout: 10
         max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        LIENAR1_RESULTS: "${{steps.lienar1.outputs.result}}"
+        LINEAR1_RESULTS: "${{steps.linear1.outputs.result}}"
         RECURSIVELINEAR_RESULTS: "${{steps.recursivelinear.outputs.result}}"
         BINARYSEARCH_RESULTS: "${{steps.binarysearch.outputs.result}}"
         RECURSIVEBINARY_RESULTS: "${{steps.recursivebinary.outputs.result}}"
       with:
-        runners: lienar1,recursivelinear,binarysearch,recursivebinary
+        runners: linear1,recursivelinear,binarysearch,recursivebinary
